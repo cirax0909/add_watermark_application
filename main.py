@@ -47,6 +47,8 @@ def save_file():
 window = tk.Tk()
 window.title("Watermark Creator")
 window.config(padx=30, pady=20)
+window.columnconfigure([0, 1, 2, 3], weight=1, minsize=5)
+window.rowconfigure([0, 1], weight=1, minsize=10)
 
 new_image_button = Button(text="New Image", command=browseMain)
 new_image_button.grid(column=0, row=1)
@@ -63,10 +65,10 @@ save_image_button.grid(column=3, row=1)
 img = Image.open(r'E:\add_watermark_application\image\river.jpg')
 width, height = img.size
 
-canvas = tk.Canvas(window, width=800, height=560)
+canvas = tk.Canvas(window, width=1000, height=560)
 canvas.grid(row=2, columnspan=4, pady=20)
 
 photo = ImageTk.PhotoImage(img)
-canvas.create_image(width // 3, height // 3, image=photo)
+canvas.create_image(width//2, height//2, image=photo)
 
 window.mainloop()
